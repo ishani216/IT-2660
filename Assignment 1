@@ -1,0 +1,65 @@
+// Listing class implementation
+import java.util.Scanner;
+public class Listing
+{
+   // data fields
+   private String name;
+   private int age;
+
+   // default constructor implementation
+   public Listing()
+   {
+       name = " ";
+       age = 0;
+   }
+  
+   // parameterized constructor implementation
+   public Listing(String newName, int newAge)
+   {
+       name = newName;
+       age = newAge;
+   }
+  
+   // toString method implementation
+   public String toString()
+   {
+       return "Name: " + name + ", Age: " + age;
+   }
+  
+   // input method implementation
+   public void input()
+   {
+       Scanner keyboard = new Scanner(System.in);
+      
+       System.out.print("Enter the name: ");
+       name = keyboard.nextLine();
+      
+       System.out.print("Enter the age: ");
+       age = keyboard.nextInt();
+       keyboard.nextLine();
+   }
+  
+   // setName method implementation
+   public void setName(String newName)
+   {
+       name = newName;
+   }
+  
+   // setAge method implementation
+   public void setAge(int newAge)
+   {
+       age = newAge;
+   }
+  
+   // getName method implementation
+   public String getName()
+   {
+       return name;
+   }
+  
+   // getAge method implementation
+   public int getAge()
+   {
+       return age;
+   }
+} // end of Listing class
