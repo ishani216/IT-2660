@@ -1,0 +1,46 @@
+public class NodeDatabase{
+   public static void insert(SortedNodeArray d){
+       String name = JOptionPane.showInputDialog("Enter a Name");
+       String address = JOptionPane.showInputDialog("Enter a Address");
+       String number = JOptionPane.showInputDialog("Enter a Number");
+       Node n = new Node(name,address,number);
+       d.insert(n);
+   }
+   public static void delete(SortedNodeArray d){
+       String name = JOptionPane.showInputDialog("Enter a Name to delete");
+       d.delete(name);
+   }
+   public static void fetch(SortedNodeArray d){
+       String name = JOptionPane.showInputDialog("Enter a Name");
+       String dis = d.find(name);
+       if(dis == null){
+           JOptionPane.showMessageDialog(null,"No Data Found");
+       }else{
+           JOptionPane.showMessageDialog(null,dis);
+       }
+   }
+   public static void update(SortedNodeArray d){
+       String name = JOptionPane.showInputDialog("Enter a Name to update ");
+       d.update(name);
+   }
+
+   public static void display(SortedNodeArray d){
+       d.display();
+   }
+
+   public static void main(String[] args) {
+       int num = Integer.parseInt(JOptionPane.showInputDialog("Enter Max Array Size(must be integer) "));
+       SortedNodeArray datab = new SortedNodeArray(num);
+       int ch = 0;
+       String menu = "\n1. Insert \n2. Delete \n3. Fetch \n4. Update \n5. Output All \n6. Exit";
+       while((ch = Integer.parseInt(JOptionPane.showInputDialog(menu))) != 6){
+           switch(ch){
+               case 1:insert(datab);break;
+               case 2:delete(datab);break;
+               case 3:fetch(datab);break;
+               case 4:update(datab);break;
+               case 5:display(datab);break;
+           }
+       }
+   }
+}
