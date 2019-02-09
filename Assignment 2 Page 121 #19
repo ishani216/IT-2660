@@ -1,25 +1,42 @@
-public class ListingNode
-{
-   private Listing listing;
-    private ListingNode next;
 
-    public ListingNode(Listing listing) {
-        this.listing = listing;
-    }
 
-    public Listing getListing() {
-        return listing;
-    }
+public class Node{
+   private String name;//key feild
+   private String address;
+   private String number;
 
-    public void setListing(Listing listing) {
-        this.listing = listing;
-    }
+   public Node(String n,String a,String num){
+       name = n;
+       address = a;
+       number = num;
+   }
 
-    public ListingNode getNext() {
-        return next;
-    }
+   public String toString(){
+       return ("Name is " + name +
+           "\nAddress is " + address +
+           "\nNumber is " + number+"\n");
+   }
 
-    public void setNext(ListingNode next) {
-        this.next = next;
-    }
+   public Node deepCopy(){
+       Node clone = new Node(name,address,number);
+       return clone;
+   }
+
+   public int compareTo(String targetKey){
+       return (name.compareTo(targetKey));
+   }
+
+   public void setAddress(String a){
+       address = a;
+   }
+
+   public String getName(){
+       return name;
+   }
+
+   public void input(){
+       name = JOptionPane.showInputDialog("Enter a Name");
+       address = JOptionPane.showInputDialog("Enter a Address");
+       number = JOptionPane.showInputDialog("Enter a Number");
+   }
 }
