@@ -1,0 +1,97 @@
+
+public class SortedNodeArray{
+   private Node[] datas;
+   private int ind = -1;
+   private int max;
+
+   public SortedNodeArray(int m){
+       max = m;
+       datas = new Node[max];
+   }
+
+   private void increase(){
+       max = max + 10;
+       Node[] tmp = new Node[max];
+       for(int i= 0;i<=ind;i++){
+           tmp[i] = datas[i];
+       }
+       datas = tmp;
+   }
+
+   public void display(){
+       if(ind == -1){
+           JOptionPane.showMessageDialog(null,"Nothing To Display");
+       }
+       String dis = null;
+       for(int i = 0;i<=ind;i++){
+           dis += datas[i].toString();
+           dis += "====================================\n";
+       }
+       JOptionPane.showMessageDialog(null,dis);
+   }
+
+   public void insert(Node n1){
+       //for dynamically allocation
+       if(ind == max){
+           increase();
+       }
+       if(ind == -1){
+           datas[0] = n1.deepCopy();
+           ind++;
+           return;
+       }
+       for(int i = 0;i<=ind;i++){
+           if(n1.compareTo(datas[i].getName()) == -1){
+               for(int j = ind+1;j > i;j--){
+                   datas[j] = datas[j-1];
+               }
+               datas[i] = n1.deepCopy();
+               ind++;
+               return;
+           }
+       }
+       datas[++ind] = n1.deepCopy();
+   }
+
+   public void delete(String key){
+       if(ind == -1){
+           return;
+       }
+       for(int i= 0;i<=ind;i++){
+           if(datas[i].compareTo(key) == 0){
+               for(int j = i;j < ind;j++){
+                   datas[j] = datas[j+1];
+               }
+               ind--;
+               return;
+           }
+       }
+   }
+
+   public String find(String key){
+       if(ind == -1){
+           return null;
+       }
+       for(int i= 0;i<=ind;i++){
+           if(datas[i].compareTo(key) == 0){
+               return datas[i].toString();
+           }
+       }
+
+       return null;
+   }
+
+   public void update(String key){
+       if(ind == -1){
+           return;
+       }
+       for(int i= 0;i<=ind;i++){
+           if(datas[i].compareTo(key) == 0){
+               datas[i].input();
+               return;
+           }
+       }
+   }
+
+
+}
