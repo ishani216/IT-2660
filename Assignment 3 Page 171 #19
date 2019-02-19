@@ -1,0 +1,62 @@
+public Stack(int n) {
+top = -1;
+size = n;
+data = new Listing[n];
+}
+public boolean push(Listing newNode)
+{
+if(top == size-1)
+return false;
+else
+{
+top = top+1;
+data[top] = newNode.deepCopy();
+return true;
+}
+}
+public Listing pop()
+{
+int topLocation;
+if(top == -1)
+return null;
+else
+{
+topLocation = top;
+top = top - 1;
+return data[topLocation];
+}
+}
+public void showAll()
+{
+for(int i= top; i>= 0; i--)
+System.out.println(data[i].toString());
+}
+//clears the array and re-initializes the data members
+public void clear()
+{
+top = -1;
+size = 100;
+data = new Listing[100];
+}
+//checks for stack underflow
+public boolean isEmpty()
+{
+if(top == -1)
+return true;
+else return false;
+}
+//checks for stack overflow
+public boolean isFull()
+{
+if(top == size-1)
+return true;
+else return false;
+}
+//returns the top element in the stack array
+public Listing peek()
+{
+if(!isEmpty())
+return data[top];
+else return null;
+}
+}
