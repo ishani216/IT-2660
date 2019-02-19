@@ -1,0 +1,39 @@
+public class StackTester {
+
+public static void main(String[] args) {
+
+Listing node1 = new Listing(23);
+
+Listing node2 = new Listing(24);
+
+Listing node3 = new Listing(25);
+
+Stack stack = new Stack(3);
+
+System.out.println("\nNo elements added. Stack size is 3");
+
+System.out.println("Is Stack empty? " + stack.isEmpty());
+
+stack.push(node1);
+
+System.out.println("\nAfter adding one element.");
+
+System.out.println("Is Stack full? " + stack.isFull());
+
+stack.push(node2);
+
+stack.push(node3);
+
+System.out.println("\nAfter adding 3 elements.");
+
+System.out.println("Is Stack full? " + stack.isFull());
+
+System.out.println("\nTop element : " + stack.peek());
+
+System.out.println("\nElements in stack");
+
+stack.showAll();
+
+}
+
+}
