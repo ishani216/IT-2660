@@ -1,0 +1,33 @@
+public class Listlinked {
+
+    private ListingNode headnode;
+
+    public Listlinked() {
+
+        headnode = null;
+
+    }
+
+    public void insert(listpro listing11) {
+
+        ListingNode listingNode = new ListingNode(listing11);
+
+        if(headnode == null) {
+
+            headnode = listingNode;
+
+        } else {
+
+            ListingNode tempval = headnode;
+
+            while (tempval.getnextnode() != null) {
+
+                tempval = tempval.getnextnode();
+
+            }
+
+            tempval.setnextnode(listingNode);
+
+        }
+
+    }
