@@ -1,0 +1,16 @@
+public class LikedListMain
+{
+   private static Scanner in = new Scanner(System.in);  
+
+   private static int getMenuChoice()
+   {
+       System.out.println("\n-------------- MENU --------------");
+       System.out.println("1. insert a new student's information");
+       System.out.println("2. fetch and output a student's information");
+       System.out.println("3. delete a student's information");
+       System.out.println("4. update a student's information");
+       System.out.println("5. output all the student information");
+       System.out.println("6. exit the program");
+       System.out.print("Please enter your choice: ");
+       return in.nextInt();
+   }
